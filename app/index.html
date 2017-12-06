@@ -22,94 +22,87 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">Container</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  		<a class="navbar-brand" href="#">STAR WARS jQuery</a>
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  			<span class="navbar-toggler-icon"></span>
+	  		</button>
 
-        <div class="collapse navbar-collapse" id="navbarsExample07">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown07">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-          </form>
-        </div>
-      </div>
-    </nav>
+	  		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	  			<div class="navbar-nav">
+	  				<a class="nav-item nav-link active" href="index.html">Exercise Bootstrap<span class="sr-only">(current)</span></a>
+	  				<a class="nav-item nav-link active" href="PageVue.html">STAR WARS Vue<span class="sr-only">(current)</span></a>
+	  			</div>
+	  		</div>
+	  	</nav>
+	  	
+		
+		<div class="card bg-dark text-white">
+			<img class="card-img" src="images/logostar.png" alt="Card image">
+		</div>
 
-    <div class="container">
-      <div class="header">
-        <div class="alert alert-info" role="alert">
-          <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-        </div>
-        <div class="btn-group dropup float-right">
-          <button type="button" class="btn btn-secondary">Dropup</button>
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            ...
-          </div>
-        </div>
+		<div class="card-deck">
+			<div onclick="myfunction()", class="card">
+				<img class="card-img-top" src="images/lukesky.jpg" alt="Star Wars">
+				<div class="result0"></div>
+			</div>
 
-        <h3 class="text-muted">smin yeoman</h3>
+			<div onclick="myfunction()" class="card">
+				<img class="card-img-top" src="images/robot.png" alt="Wiiii, C-3PO">
+				<div class="result1"></div>
+			</div>
 
-      </div>
+			<div onclick="myfunction()", class="card">
+				<img class="card-img-top" src="images/robot1.png" alt="bit, bot: R2-D2">
+				<div class="result2"></div>
+			</div>
 
+			<div onclick="myfunction()", class="card">
+				<img class="card-img-top" src="images/dark.jpg" alt="Je suis ton pere">
+				<div class="result3"></div>
+			</div>
 
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Superb!</a></p>
-      </div>
+			<div onclick="myfunction()", class="card">
+				<img class="card-img-top" src="images/Leia.jpg" alt="LeiaOrgana">
+				<div class="result4"></div>
+			</div>
 
-      <div class="row marketing">
-        <div class="col-sm-12 col-lg">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-        </div>
+			<div onclick="myfunction()", class="card">
+				<img class="card-img-top" src="images/owen.jpg" alt="hola owen">
+				<div class="result5"></div>
+			</div>
+		</div>
 
-        <div class="col-sm-12 col-lg">
-          <h4>Sass</h4>
-          <p>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</p>
-        </div>
+		<div class="list-group">
+			<button onclick="chargePersonnages('https://swapi.co/api/people/?format=json')" type="button" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off"> Charger liste des Personnages de STAR WARS</button>
+		</div>
 
-        <div class="col-sm-12 col-lg">
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-        </div>
+		<div class="card-deck">
+			<div class="card">
+				<button type="button" class="btn btn-primary btn-lg btn-outline-dark prevPag invisible">AVANT</button>
+			</div>
 
-        <div class="col-sm-12 col-lg">
-          <h4>Modernizr</h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-        </div>
-      </div>
+			<div class="card">
+				<button type="button" class="btn btn-primary btn-lg btn-outline-dark nextPag invisible">SUIVANT</button>
+			</div>
+		</div>
+	
+    <!-- Modal -->
+    	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    		<div class='modal-dialog' role='document'>
+    			<div class='modal-content'>
+    				<div class='modal-header'>
+    					<h4 class='modal-title' id='exampleModalLabel'>Details</h4>
+    				</div>
+    				
+    				<div class='modal-body'></div>
 
-      <img class="img-fluid" src="images/landscape.jpg">
-
-      <div class="footer">
-        <p>♥ from the Yeoman team</p>
-      </div>
-    </div>
+    				<div class='modal-footer'>
+    					<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+    				</div>
+    			</div>
+			</div>
+    	</div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -123,6 +116,8 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    
+    
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
