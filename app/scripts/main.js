@@ -2,7 +2,7 @@ function myfunction() {
         console.log('survol');
     }
 
-    function chargePersonnages( pag) {
+    function chargePersonnages(pag) {
         $.ajax({
             url: pag,
             type: 'GET',
@@ -62,7 +62,7 @@ function myfunction() {
         });
     }
 
-    function creeModal($, nom, mass, eyes, he, hair, skin, birth, gender, numPel, fil) {
+    function creeModal(nom, mass, eyes, he, hair, skin, birth, gender, numPel, fil) {
         console.log('Personnage selectioné:           ' + nom);
         //Transfomation du String a Array
         var res = fil.split(',');
