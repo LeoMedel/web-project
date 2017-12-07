@@ -2,7 +2,7 @@ function myfunction() {
         console.log('survol');
     }
 
-    function chargePersonnages($, pag) {
+    function chargePersonnages( pag) {
         $.ajax({
             url: pag,
             type: 'GET',

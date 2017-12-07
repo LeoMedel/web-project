@@ -5,11 +5,18 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+const concat = require('gulp-concat');
+
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 let dev = true;
+
+gulp.task('deploy', ['default'], () => {
+  return gulp.src('dist/**/*')
+    .pipe($.ghPages());
+});
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -26,6 +33,7 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}));
 });
 
+// Cette tache ne va traiter que les fichier dans app/scripts/**/*.js
 gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.js')
     .pipe($.plumber())
@@ -35,6 +43,32 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
 });
+
+// On utilise GULP pour récupérer nos fichiers JS externes,
+ // ici tous les modules javascripts de Bootstrap 4,
+ // et on les met tous dans le fichier scripts/vendors.js
+ gulp.task('external-scripts', () => {
+     return gulp.src([
+       'node_modules/bootstrap/js/dist/alert.js',
+       'node_modules/bootstrap/js/dist/button.js',
+       'node_modules/bootstrap/js/dist/carousel.js',
+       'node_modules/bootstrap/js/dist/collapse.js',
+       'node_modules/bootstrap/js/dist/dropdown.js',
+       'node_modules/bootstrap/js/dist/index.js',
+       'node_modules/bootstrap/js/dist/modal.js',
+       'node_modules/bootstrap/js/dist/tooltip.js',
+       'node_modules/bootstrap/js/dist/popover.js',
+       'node_modules/bootstrap/js/dist/scrollspy.js',
+       'node_modules/bootstrap/js/dist/tab.js',
+       'node_modules/bootstrap/js/dist/util.js'
+     ])
+     .pipe($.plumber())
+     .pipe($.babel())
+     .pipe(concat('vendors.js'))
+     .pipe(gulp.dest('.tmp/scripts'))
+     .pipe(reload({stream: true}));
+ });
+
 
 function lint(files) {
   return gulp.src(files)
@@ -53,7 +87,8 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec'));
 });
 
-gulp.task('html', ['styles', 'scripts'], () => {
+//gulp.task('html', ['styles', 'scripts'], () => {
+gulp.task('html', ['styles', 'scripts', 'external-scripts'], () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
@@ -95,7 +130,8 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
+  //runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'external-scripts', 'fonts'], () => {
     browserSync.init({
       notify: false,
       host: process.env.IP,
